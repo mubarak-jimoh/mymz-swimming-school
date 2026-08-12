@@ -1,0 +1,2 @@
+import type {Metadata} from "next";import {LegalPlaceholder} from "@/components/legal-placeholder";
+export const metadata:Metadata={title:"Terms & Conditions | MYMZ Swimming School",description:"Terms and conditions information for MYMZ Swimming School.",robots:{index:false,follow:true}};export default function Page(){return <LegalPlaceholder type="TERMS & CONDITIONS" title="The terms for booking and attending lessons."/>}

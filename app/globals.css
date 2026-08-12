@@ -1,26 +1,23 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+:root { --navy:#061b2c; --ocean:#087ea4; --aqua:#4dd5dd; --cream:#f7f5ef; --canvas:#fbfdfc; --mist:#f2f7f7; --tint:#edf8f8; --ink:#102c3c; --font-body:"Avenir Next",Avenir,"Segoe UI",sans-serif; --font-display:"Avenir Next",Avenir,"Segoe UI",sans-serif; }
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy:var(--navy); --color-ocean:var(--ocean); --color-aqua:var(--aqua); --color-cream:var(--cream); --color-canvas:var(--canvas); --color-mist:var(--mist); --color-tint:var(--tint); --color-ink:var(--ink);
+  --font-sans:var(--font-body); --font-display:var(--font-display);
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:6rem; }
+body { margin:0; overflow-x:hidden; background:var(--canvas); color:var(--ink); font-family:var(--font-body),sans-serif; }
+button,a,input,select,textarea { outline-offset:4px; }
+:focus-visible { outline:3px solid #38c9d2; }
+::selection { background:#bceff1; color:var(--navy); }
+.container-site { width:min(100% - 2rem, 76rem); margin-inline:auto; }
+.display { font-family:var(--font-display),sans-serif; letter-spacing:-.045em; }
+.eyebrow { font-size:.75rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--ocean); }
+.water-grid { background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px); background-size:56px 56px; }
+.pool-lines { background:linear-gradient(140deg,#0b6886 0%,#0a8faf 45%,#65d4d6 100%); }
+.pool-lines::after { content:""; position:absolute; inset:0; background:radial-gradient(circle at 22% 18%,rgba(255,255,255,.5),transparent 24%),repeating-radial-gradient(ellipse at 40% 50%,transparent 0 18px,rgba(255,255,255,.13) 20px 22px); mix-blend-mode:soft-light; }
+.fade-up { animation:fade-up .8s cubic-bezier(.2,.8,.2,1) both; }
+.delay-1 { animation-delay:.12s; } .delay-2 { animation-delay:.24s; }
+@keyframes fade-up { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:none } }
+@media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto}.fade-up{animation:none}*,*::before,*::after{transition-duration:.01ms!important} }

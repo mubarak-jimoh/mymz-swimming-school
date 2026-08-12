@@ -1,0 +1,2 @@
+import type {Metadata} from "next";import {LegalPlaceholder} from "@/components/legal-placeholder";
+export const metadata:Metadata={title:"Privacy Policy | MYMZ Swimming School",description:"Privacy information for MYMZ Swimming School booking and enquiry services.",robots:{index:false,follow:true}};export default function Page(){return <LegalPlaceholder type="PRIVACY POLICY" title="How MYMZ handles booking and enquiry information."/>}

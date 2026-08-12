@@ -1,0 +1,2 @@
+import type {Metadata} from "next";import {LegalPlaceholder} from "@/components/legal-placeholder";
+export const metadata:Metadata={title:"Cancellation Policy | MYMZ Swimming School",description:"Cancellation policy information for MYMZ Swimming School lessons.",robots:{index:false,follow:true}};export default function Page(){return <LegalPlaceholder type="CANCELLATION POLICY" title="Clear guidance for changes and cancellations."/>}
