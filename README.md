@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MYMZ Swimming School
 
-## Getting Started
+[![CI](https://github.com/Mubarakjk/mymz-swimming-school/actions/workflows/ci.yml/badge.svg)](https://github.com/Mubarakjk/mymz-swimming-school/actions/workflows/ci.yml)
 
-First, run the development server:
+The website and booking management platform for MYMZ Swimming School, a real swimming school in London.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Live site:** https://mymz-swimming-school.vercel.app
+
+Parents can read about lessons and send an enquiry. Staff sign in to a private admin area to manage lessons, instructors, pool locations, the schedule, bookings and enquiries.
+
+## Features
+
+**Public site**
+- Home, lessons, contact and enquiry pages, built mobile-first
+- Enquiry form with server-side validation and email notifications
+- Booking flow that only ever shows real availability from the database
+- SEO basics: sitemap, robots file and Open Graph image
+
+**Admin area**
+- Email and password sign-in for approved staff only
+- Manage lesson types, instructors, locations and the lesson schedule
+- View and update bookings, customers and enquiries
+- Settings for reservation timeouts and for switching bookings on or off
+
+**Security**
+- Row Level Security on every table, so visitors can only read public lesson data
+- Bot protection on forms with Cloudflare Turnstile
+- Rate limiting on the booking and enquiry endpoints
+- Prices and capacity are checked inside the database, never trusted from the browser
+- A database lock stops two people booking the last place in a lesson at the same time
+
+## Tech stack
+
+| Area | Tools |
+| --- | --- |
+| Framework | Next.js 16 (App Router), React 19, TypeScript |
+| Styling | Tailwind CSS 4 |
+| Database and auth | Supabase (PostgreSQL, Row Level Security, Auth) |
+| Email | Resend |
+| Bot protection | Cloudflare Turnstile |
+| Hosting | Vercel |
+| Testing | Node.js test runner |
+
+## Project structure
+
+```
+app/          Pages and API routes (public site, /admin, /api)
+components/   Reusable UI components
+lib/          Booking, pricing, validation, security and Supabase helpers
+supabase/     SQL migrations for the database schema and policies
+tests/        Unit tests for pricing, validation and security rules
+docs/         Setup and launch guides
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run it locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You need Node.js 20 or newer.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+git clone https://github.com/Mubarakjk/mymz-swimming-school.git
+cd mymz-swimming-school
+npm install
+cp .env.example .env.local
+npm run dev
+```
 
-## Learn More
+Then open http://localhost:3000.
 
-To learn more about Next.js, take a look at the following resources:
+The site runs without any keys in a safe setup state. To turn on enquiries, bookings and the admin area, follow [docs/SETUP.md](docs/SETUP.md) to connect a Supabase project.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Checks
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint    # ESLint
+npm test        # unit tests
+npm run build   # production build
+```
 
-## Deploy on Vercel
+These also run automatically on every push with GitHub Actions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## What I learned
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Building a full-stack app with the Next.js App Router and server actions
+- Designing a PostgreSQL schema and writing Row Level Security policies
+- Why the server and database must never trust values sent from the browser
+- Handling race conditions, such as two bookings for the last place
+- Taking a project for a real business from an empty folder to a live deployment
+
+## Author
+
+Built by **Mubarak Jimoh**.
