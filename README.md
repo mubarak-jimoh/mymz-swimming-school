@@ -1,6 +1,6 @@
 # MYMZ Swimming School
 
-[![CI](https://github.com/Mubarakjk/mymz-swimming-school/actions/workflows/ci.yml/badge.svg)](https://github.com/Mubarakjk/mymz-swimming-school/actions/workflows/ci.yml)
+[![CI](https://github.com/mubarak-jimoh/mymz-swimming-school/actions/workflows/ci.yml/badge.svg)](https://github.com/mubarak-jimoh/mymz-swimming-school/actions/workflows/ci.yml)
 
 The website and booking management platform for MYMZ Swimming School, a real swimming school in London.
 
@@ -57,7 +57,7 @@ docs/         Setup and launch guides
 You need Node.js 20 or newer.
 
 ```bash
-git clone https://github.com/Mubarakjk/mymz-swimming-school.git
+git clone https://github.com/mubarak-jimoh/mymz-swimming-school.git
 cd mymz-swimming-school
 npm install
 cp .env.example .env.local
